@@ -1,0 +1,39 @@
+﻿This is an exhaustive list of all assembly instructions for the chip-8 cpu.
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+opcode | instruction      | description
+------------------------------------------------------------------------------------------------------------------------------------------------
+00E0   | cls              | Clear the screen
+00EE   | rts              | return from subroutine call
+1NNN   | jmp NNN          | jump to address NNN
+2NNN   | jsr NNN          | jump to subroutine at address NNN
+3XNN   | skeq vX, NN      | skip if register vX = constant
+4XNN   | skne vX, NN      | skip if register vX != constant
+5XY0   | skeq vX, vY      | skip if register vX = register y
+6XNN   | mov vX, NN       | move constant to register vX
+7XNN   | add vX, vY       | add constant to register vX
+8XY0   | mov vX, vY       | move register vY into vX
+8XY1   | or vX, vY        | or register vY into register vX
+8XY2   | and vX, vY       | and register vY into register vX
+8XY3   | xor vX, vY       | exclusive or register vY into register vX
+8XY4   | add vX, vY       | add register vY to vX, carry in vF
+8XY5   | sub vX, vY       | subtract register vY from vX, borrow in vF
+8X06   | shr vX           | shift register vY right, bit 0 goes into register vF
+8XY7   | rsb vX, vY       | subtract register vX from register vY, result in vX
+8X0E   | shl vX           | shift register vX left, bit 7 goes into register vF
+9XY0   | skne vX, vY      | skip if register vX != register vY
+ANNN   | mvi NNN          | Load index register with constant NNN
+BNNN   | jmi NNN          | Jump to address NNN + register v0
+CXNN   | rand vX, NNN     | vX = random number less than or equal to NNN
+DXYN   | sprite vX, vY, N | Draw sprite in memoXY starting at location in index register, at screen location in registers vX, vY with a height of N
+EX9E   | skpr X           | skip if key (register vX) pressed
+EXA1   | skup X           | skip if key (register vX) not pressed
+FX07   | gdelay vX        | get delay timer into vX
+FX0A   | key vX           | wait for for keypress, put key in register vX
+FX15   | sdelay vX        | set the delay timer to vX
+FX18   | ssound vX        | set the sound timer to vX
+FX1E   | adi vX           | add register vX to the index register
+FX29   | font vX          | point I to the sprite for hexadecimal character in vX
+FX33   | bcd vX           | store the bcd representation of register vX at location I, I+1, I+2.
+FX55   | str v0-vX        | store registers v0-vX at location I onwards
+FX65   | ldr v0-vX        | load registers v0-vX from location I onwards

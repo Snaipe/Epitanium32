@@ -1,0 +1,6 @@
+This program comes with two components :
+- A chip-8 emulator at ./Epitanium32/Epitanium32/
+- A chip-8 assembly compiler at ./Epitanium32/c8c/
+
+Both of them require a input file.
+Documentation for assembly instructions with the chip-8 opcodes is at ./Epitanium32/c8c/doc/instructions.txt
